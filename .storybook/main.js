@@ -1,12 +1,9 @@
-const path = require('path');
-const cracoConfig = require('../craco.config');
+const path = require('path')
+const cracoConfig = require('../craco.config')
 
 module.exports = {
   staticDirs: ['../public'],
-  stories: [
-    '../src/**/*.@(stories|story).mdx',
-    '../src/**/*.@(stories|story).@(js|jsx|ts|tsx)',
-  ],
+  stories: ['../src/**/*.@(stories|story).mdx', '../src/**/*.@(stories|story).@(js|jsx|ts|tsx)'],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
@@ -30,7 +27,7 @@ module.exports = {
           ...cracoConfig.webpack.alias,
         },
       },
-    };
+    }
 
     if (options.configType === 'DEVELOPMENT') {
       config.module.rules.push({
@@ -46,9 +43,9 @@ module.exports = {
           },
         ],
         include: path.resolve(__dirname, '../'),
-      });
+      })
     }
 
-    return config;
+    return config
   },
-};
+}

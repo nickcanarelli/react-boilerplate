@@ -1,5 +1,5 @@
-import classNames from 'classnames';
-import { ButtonHTMLAttributes } from 'react';
+import classNames from 'classnames'
+import { ButtonHTMLAttributes } from 'react'
 
 enum Size {
   small = 'small',
@@ -11,12 +11,12 @@ type Props = {
   /**
    * Is this the principal call to action on the page?
    */
-  primary?: boolean;
+  primary?: boolean
   /**
    * How large should the button be?
    */
-  size?: Size;
-} & ButtonHTMLAttributes<HTMLButtonElement>;
+  size?: Size
+} & ButtonHTMLAttributes<HTMLButtonElement>
 
 /**
  * Primary UI component for user interaction
@@ -48,7 +48,7 @@ export const Button = ({
     >
       {children}
     </button>
-  );
-};
+  )
+}
 
-Button.size = Size;
+Button.size = Size
