@@ -1,18 +1,24 @@
-import { useCallback, useState } from 'react'
-import Button from './components/Button'
-import logo from './logo.svg'
+import { RouterProvider } from '@tanstack/react-router'
+import { router } from './router'
 
 function App() {
-  const [clickCount, setClickCount] = useState(1)
+  // const [clickCount, setClickCount] = useState(1)
 
-  const handleClick = useCallback(() => {
-    window.alert(`Clicked ${clickCount} times!`)
-    setClickCount(clickCount + 1)
-  }, [clickCount])
+  // const handleClick = useCallback(() => {
+  //   window.alert(`Clicked ${clickCount} times!`)
+  //   setClickCount(clickCount + 1)
+  // }, [clickCount])
 
   return (
     <>
-      <div>
+      <RouterProvider
+        router={router}
+        // defaultLoaderMaxAge={defaultLoaderMaxAge}
+        // Normally, the options above aren't changing, but for this particular
+        // example, we need to key the router when they change
+      />
+
+      {/* <div>
         <header>
           <img src={logo} alt='logo' className='w-8 h-8 my-16 mx-auto' />
           <div className='flex flex-col'>
@@ -24,7 +30,7 @@ function App() {
             </Button>
           </div>
         </header>
-      </div>
+      </div> */}
     </>
   )
 }

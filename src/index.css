@@ -1,3 +1,47 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  @apply light;
+}
+
+.dark {
+  --color-bg-primary: #2d3748;
+  --color-bg-secondary: #283141;
+  --color-text-primary: #f7fafc;
+  --color-text-secondary: #e2e8f0;
+  --color-text-accent: #81e6d9;
+}
+
+.light {
+  --color-bg-primary: #7a6af6;
+  --color-bg-secondary: #edf2f7;
+  --color-text-primary: #2d3748;
+  --color-text-secondary: #4a5568;
+  --color-text-accent: #2b6cb0;
+
+  /* Brand */
+  --color-brand-primary: #7a6af6;
+  /*
+    --color-brand-primary-200: ######;
+    --color-brand-primary-300: ######;
+  */
+
+  /* Neutral */
+  /*
+    --color-brand-neutral-100: ######;
+    --color-brand-neutral-200: ######;
+    --color-brand-neutral-300: ######;
+    --color-brand-neutral-400: ######;
+    --color-brand-neutral-500: ######;
+    --color-brand-neutral-600: ######;
+    --color-brand-neutral-700: ######;
+    --color-brand-neutral-800: ######;
+  */
+
+  /* States */
+  --color-brand-warning: #ffd874;
+  --color-brand-error: #f67991;
+  --color-brand-success: #5fdcb3;
+}

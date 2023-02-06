@@ -1,0 +1,59 @@
+import { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect'
+import { useState } from 'react'
+
+function usePrefersDarkMode() {
+  const [value, setValue] = useState(true)
+
+  useIsomorphicLayoutEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+    setValue(mediaQuery.matches)
+
+    const handler = () => setValue(mediaQuery.matches)
+    mediaQuery.addEventListener('change', handler)
+    return () => mediaQuery.removeEventListener('change', handler)
+  }, [])
+
+  return value
+}
+
+function useSafeLocalStorage(key: string, initialValue: undefined) {
+  const [valueProxy, setValueProxy] = useState(() => {
+    try {
+      const value = window.localStorage.getItem(key)
+      return value ? JSON.parse(value) : initialValue
+    } catch {
+      return initialValue
+    }
+  })
+
+  const setValue = (value: string) => {
+    try {
+      window.localStorage.setItem(key, value)
+      setValueProxy(value)
+    } catch {
+      setValueProxy(value)
+    }
+  }
+
+  return [valueProxy, setValue]
+}
+
+export function useDarkMode() {
+  const prefersDarkMode = usePrefersDarkMode()
+  const [isEnabled, setIsEnabled] = useSafeLocalStorage('dark-mode', undefined)
+
+  const enabled = isEnabled === undefined ? prefersDarkMode : isEnabled
+
+  useIsomorphicLayoutEffect(() => {
+    // const appContainer = document.getElementById('under-app')
+    // if (appContainer === null || window === undefined) return
+    // appContainer.classList.remove(enabled ? 'light' : 'dark')
+    // appContainer.classList.add(enabled ? 'dark' : 'light')
+    if (window === undefined) return
+    const root = window.document.documentElement
+    root.classList.remove(enabled ? 'light' : 'dark')
+    root.classList.add(enabled ? 'dark' : 'light')
+  }, [enabled])
+
+  return [enabled, setIsEnabled]
+}
