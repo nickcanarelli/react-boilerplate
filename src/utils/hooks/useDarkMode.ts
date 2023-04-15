@@ -1,5 +1,7 @@
 import { useIsomorphicLayoutEffect } from './useIsomorphicLayoutEffect'
 import { useState } from 'react'
+import { useRecoilState } from 'recoil'
+import { darkModeAtom } from '@components/layout/app/_recoil/state'
 
 function usePrefersDarkMode() {
   const [value, setValue] = useState(true)
@@ -39,21 +41,24 @@ function useSafeLocalStorage(key: string, initialValue: undefined) {
 }
 
 export function useDarkMode() {
+  const [darkMode, setDarkMode] = useRecoilState(darkModeAtom)
   const prefersDarkMode = usePrefersDarkMode()
   const [isEnabled, setIsEnabled] = useSafeLocalStorage('dark-mode', undefined)
 
   const enabled = isEnabled === undefined ? prefersDarkMode : isEnabled
 
   useIsomorphicLayoutEffect(() => {
-    // const appContainer = document.getElementById('under-app')
-    // if (appContainer === null || window === undefined) return
-    // appContainer.classList.remove(enabled ? 'light' : 'dark')
-    // appContainer.classList.add(enabled ? 'dark' : 'light')
     if (window === undefined) return
     const root = window.document.documentElement
     root.classList.remove(enabled ? 'light' : 'dark')
     root.classList.add(enabled ? 'dark' : 'light')
+    setDarkMode(enabled)
   }, [enabled])
 
-  return [enabled, setIsEnabled]
+  function setMode(value: boolean) {
+    setIsEnabled(value)
+    setDarkMode(value)
+  }
+
+  return [darkMode, setMode]
 }

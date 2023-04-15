@@ -2,46 +2,71 @@
 @tailwind components;
 @tailwind utilities;
 
+@import '@assets/fonts/index.css';
+
 :root {
-  @apply light;
+  @apply light font-omega font-normal text-base;
 }
 
-.dark {
-  --color-bg-primary: #2d3748;
-  --color-bg-secondary: #283141;
-  --color-text-primary: #f7fafc;
-  --color-text-secondary: #e2e8f0;
-  --color-text-accent: #81e6d9;
+.light body {
+  @apply bg-gray-100;
 }
 
-.light {
-  --color-bg-primary: #7a6af6;
-  --color-bg-secondary: #edf2f7;
-  --color-text-primary: #2d3748;
-  --color-text-secondary: #4a5568;
-  --color-text-accent: #2b6cb0;
-
-  /* Brand */
-  --color-brand-primary: #7a6af6;
-  /*
-    --color-brand-primary-200: ######;
-    --color-brand-primary-300: ######;
-  */
-
-  /* Neutral */
-  /*
-    --color-brand-neutral-100: ######;
-    --color-brand-neutral-200: ######;
-    --color-brand-neutral-300: ######;
-    --color-brand-neutral-400: ######;
-    --color-brand-neutral-500: ######;
-    --color-brand-neutral-600: ######;
-    --color-brand-neutral-700: ######;
-    --color-brand-neutral-800: ######;
-  */
-
-  /* States */
-  --color-brand-warning: #ffd874;
-  --color-brand-error: #f67991;
-  --color-brand-success: #5fdcb3;
+.dark body {
+  @apply bg-neutral-900 text-white;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-soin font-normal leading-5;
+}
+
+h1 {
+  @apply mt-0 text-[3.052rem];
+}
+
+h2 {
+  @apply text-[2.441rem];
+}
+
+h3 {
+  @apply text-[1.953rem];
+}
+
+h4 {
+  @apply text-[1.563rem];
+}
+
+h5 {
+  @apply text-[1.25rem];
+}
+
+h6 {
+  @apply text-[1rem];
+}
+
+p,
+a,
+ul,
+ol {
+  @apply font-omega;
+}
+
+a {
+  @apply text-primary-100;
+}
+/*
+  Color Palette
+  #EFF0F1
+  #9D9DA2
+  #011EF7 - primary
+  #A5BBD0
+  #636369
+  #3965D7
+  #1A1A1B
+  #87809A
+*/

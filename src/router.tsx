@@ -4,14 +4,14 @@ import { ReactRouter } from '@tanstack/react-router'
 import { rootRoute } from './routes/__root'
 import { indexRoute } from './routes'
 import { authLayoutRoute } from './routes/auth'
-import { appLayoutRoute } from './routes/app'
+import { appLayoutRoute } from '@components/layout/app'
+import { appRoutes } from './routes/app'
 import { loginRoute } from './routes/auth/Login/Login'
-import { dashboardRoute } from './routes/app/Dashboard/Dashboard'
 
 const routeTree = rootRoute.addChildren([
   indexRoute,
   authLayoutRoute.addChildren([loginRoute]),
-  appLayoutRoute.addChildren([dashboardRoute]),
+  appLayoutRoute.addChildren(appRoutes),
   // dashboardRoute.addChildren([
   //   dashboardIndexRoute,
   //   invoicesRoute.addChildren([invoicesIndexRoute, invoiceRoute]),

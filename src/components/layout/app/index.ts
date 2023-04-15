@@ -1,3 +1,3 @@
-import Header from './Header/Header'
+import { appLayoutRoute } from './AppLayout'
 
-export { Header }
+export { appLayoutRoute }

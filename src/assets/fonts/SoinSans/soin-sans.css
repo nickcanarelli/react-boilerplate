@@ -1,0 +1,31 @@
+@font-face {
+  font-family: 'Soin Sans';
+  src: url('soinsansneue-black-webfont.woff2') format('woff2'),
+    url('soinsansneue-black-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Soin Sans';
+  src: url('soinsansneue-bold-webfont.woff2') format('woff2'),
+    url('soinsansneue-bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Soin Sans';
+  src: url('soinsansneue-light-webfont.woff2') format('woff2'),
+    url('soinsansneue-light-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Soin Sans';
+  src: url('soinsansneue-medium-webfont.woff2') format('woff2'),
+    url('soinsansneue-medium-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}

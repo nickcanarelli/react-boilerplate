@@ -9,6 +9,5 @@ export default {
 
 export const Button: ComponentStory<typeof Component> = (args) => <Component {...args} />
 Button.args = {
-  primary: true,
   children: 'Button',
 }
